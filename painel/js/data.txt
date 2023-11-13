@@ -1,0 +1,25 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "Quote": "Incs234",
+      "Product": "Aluguel",
+      "Business": "Business type 1",
+      "Policy": "Pedro",
+      "Premium": "R$ 1.200",
+      "Status": "Progresso",
+      "Updated": "25/04/2023"
+    },{
+      "id": "2",
+      "Quote": "Incs235",
+      "Product": "Aluguel",
+      "Business": "Business type 2",
+      "Policy": "Pedro",
+      "Premium": "R$ 1.200",
+      "Status": "Ativo",
+      "Updated": "25/04/2023"
+    }
+
+    
+  ]
+}
