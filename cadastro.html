@@ -56,9 +56,9 @@
               <li class="has-children">
                 <a href="properties.html">Acesso</a>
                 <ul class="dropdown">
-                  <li><a href="#">Anunciante</a></li>
-                  <li><a href="#">Cliente</a></li>
-                  <li><a href="#">Corretor</a></li>
+                  <li><a href="#">Login</a></li>
+                  <li><a href="#">Recuperar senha</a></li>
+                  <li><a href="#">Esqueci o login</a></li>
                   <li><a href="#">Parceiros</a></li>
                 </ul>
               </li>
@@ -126,22 +126,27 @@
 
     <div class="section">
       <div class="container">
-        <h3>Cadastre-se para anunciar</h3><br>
+        <h3>Junte se! Ao Cronus Imob</h3><br>
         <div class="row">
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-            <form action="#">
+            <form id="cadastroForm">
               <div class="row">
                 <div class="col-6 mb-3">
                   <input
-                    type="text"
+                    type="text" 
+                    value="" 
+                    id="id_nome"
                     class="form-control"
                     placeholder="Aurora"
+                    maxlength="15"
                     required
                   />
                 </div>
                 <div class="col-6 mb-3">
                   <input
-                    type="tel"
+                    type="tel" 
+                    value="" 
+                    id="id_whatsapp"
                     class="form-control"
                     placeholder="WhatsApp"
                     required
@@ -150,14 +155,18 @@
                 <div class="col-6 mb-3">
                   <input
                     type="text"
+                    value="" 
+                    id="id_usuario"
                     class="form-control"
-                    placeholder="Usuário" 
+                    placeholder="Usuário (ex.: aurora123)" 
                     required
                   />
                 </div>
                 <div class="col-6 mb-3">
                   <input
                     type="password"
+                    value=""
+                    id="id_password"
                     class="form-control"
                     placeholder="Senha" 
                     required
@@ -165,8 +174,11 @@
                 </div>
                 <div class="col-12 mb-3">
                   <input
-                    type="tel"
-                    class="form-control"
+                    type="number" 
+                    value="" 
+                    id="id_cpf"
+                    class="form-control" 
+                    maxlength="11"
                     placeholder="CPF" 
                     required
                   />
@@ -187,6 +199,87 @@
     </div>
     <!-- /.untree_co-section -->
 
+
+
+
+
+<script>
+  document.getElementById('cadastroForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Coletar dados do formulário
+      const nome = document.getElementById('id_nome').value;
+      const whatsapp = document.getElementById('id_whatsapp').value;
+      const usuario = document.getElementById('id_usuario').value;
+      const passwordInput = document.getElementById('id_password');
+      const cpf = document.getElementById('id_cpf').value;
+
+      // Verificar se algum campo está vazio
+      if (!nome || !whatsapp || !usuario || !passwordInput || !cpf) {
+          alert('Por favor, preencha todos os campos.');
+          return;
+      }
+
+      // Codificar a senha em Base64
+      const senhaCodificada = btoa(passwordInput.value);
+
+      // Construir objeto com os dados
+      const pessoa = {
+          Nome: nome,
+          WhatsApp: whatsapp,
+          Usuario: usuario,
+          Senha: senhaCodificada,
+          CPF: cpf
+      };
+
+      // Enviar dados para o backend
+      enviarDadosParaBackend(pessoa);
+  });
+
+  function enviarDadosParaBackend(pessoa) {
+      fetch('https://dev.pedro.com/imobiliaria.dev/api/pessoa/SalvarPessoa/index.php', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(pessoa)
+      })
+      .then(response => response.json())
+      .then(result => {
+          console.log(result); // Resultado do backend
+          // Adicione aqui lógica adicional conforme necessário
+          let success = result.success;
+          let message = result.message;
+          if (success === false) {
+              alert(message);
+              document.getElementById('id_cpf').value = "";
+              document.getElementById('id_usuario').value = "";
+          } else {
+              alert(message);
+              document.getElementById('cadastroForm').reset();
+          }
+          console.log(success);
+      })
+      .catch(error => {
+          console.error('Erro ao enviar dados para o backend:', error);
+      });
+  }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <div class="site-footer">
       <div class="container">
         <div class="row">
@@ -195,10 +288,10 @@
               <h3>Suporte</h3>
               <address>Ourilândia do Norte, Pará</address>
               <ul class="list-unstyled links">
-                <li><a href="tel://94991910388">(94) 9 9191-0388</a></li>
+                <li><a href="tel://94991910388">(62) 9 99195-7693</a></li>
                 <li><a href="tel://94991910388">(62) 9 9195-7693</a></li>
                 <li>
-                  <a href="mailto:info@mydomain.com">suporte@innovimbo.com.br</a>
+                  <a href="mailto:info@mydomain.com">teste@gmail.com</a>
                 </li>
               </ul>
             </div>
@@ -265,17 +358,17 @@
             -->
 
             <p>
-              Copyright &copy;
+              &copy;
               <script>
                 document.write(new Date().getFullYear());
               </script>
               . All Rights Reserved. &mdash; projetado por 
-              <a href="http://digitaldev.000.pe">Pedro & Rainer</a>
+              <a href="http://11nov.rf.gd">Pedro Nascimento</a>
               <!-- License information: https://untree.co/license/ -->
             </p>
             <div>
               Distribuido por
-              <a href="http://digitaldev.000.pe/" target="_blank">Mkt Digital Dev</a>
+              <a href="http://digitaldev.000.pe/" target="_blank">11NOV Agência</a>
             </div>
           </div>
         </div>
