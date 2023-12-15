@@ -347,7 +347,7 @@
     });
 
     function enviarDadosParaBackend(imovel) {
-        fetch('dev.pedro.com/imobiliaria.dev/controller/api/cadastro/imovel/index.php', {
+        fetch('https://dev.pedro.com/imobiliaria.dev/controller/api/cadastro/imovel/index.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

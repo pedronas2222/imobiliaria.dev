@@ -13,7 +13,7 @@ include"../../conn.php";
 $insertQuery = "INSERT INTO Imovel (TipoImovel, Endereco, Bairro, Cidade, Estado, CEP, Dormitorios, Banheiros, VagasGaragem, AreaTotal, ValorAluguel, ValorVenda, Descricao) 
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($insertQuery);
-$stmt->bind_param('ssssssiiidddd', 
+$stmt->bind_param('ssssssiiiddds', 
     $input['TipoImovel'],
     $input['Endereco'],
     $input['Bairro'],
