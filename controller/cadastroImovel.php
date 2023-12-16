@@ -28,6 +28,8 @@
     <link rel="stylesheet" href="../css/tiny-slider.css" />
     <link rel="stylesheet" href="../css/aos.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <!-- animação -->
+    <link rel="stylesheet" href="../css/animate.css" />
 
     <title>
       Cadastro de Anunciante
@@ -246,11 +248,24 @@
                             >Teste de desenvolvimento de software Innov Imobiliária - produto 001</textarea>
                         </div>
                         <div class="col-12">
-                            <input
-                                    type="submit"
-                                    value="Cadastrar Imóvel"
-                                    class="btn btn-primary"
-                            />
+                            <!-- botão de inserir produto na tabela -->
+                                <ul class="notifications">
+                                    <i>
+                                        <input
+                                            data-message="Produto inserido com sucesso!"
+                                            data-type="inverse"
+                                            data-from="top"
+                                            data-align="center"
+                                            data-icon="fa fa-check"
+                                            data-animation-in="animated bounceIn"
+                                            data-animation-out="animated bounceOut"
+                                            type="submit"
+                                            value="Cadastrar Imóvel"
+                                            class="btn btn-primary"
+                                        />
+                                    </i>
+                                </ul>
+                            <!-- fim botão de notificação e envio -->
                         </div>
                     </div>
                 </form>
@@ -553,7 +568,17 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
+    
 
+    <!-- notificações -->
+    <script type="text/javascript" src="../js/bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../js/notification.js"></script>
+
+    <!-- jQuery requerido -->
+    <script type="text/javascript" src="../js/jquery/jquery.min.js "></script>
+    <script type="text/javascript" src="../js/jquery-ui/jquery-ui.min.js "></script>
+
+    <!-- bootstrap -->
     <script src="../js/bootstrap.bundle.min.js"></script>
     <script src="../js/tiny-slider.js"></script>
     <script src="../js/aos.js"></script>
