@@ -24,10 +24,12 @@
 
     <link rel="stylesheet" href="../fonts/icomoon/style.css" />
     <link rel="stylesheet" href="../fonts/flaticon/font/flaticon.css" />
+    <link rel="stylesheet" href="../../projeto-cc19/assets/pages/waves/css/waves.min.css" type="text/css" media="all">
 
     <link rel="stylesheet" href="../css/tiny-slider.css" />
     <link rel="stylesheet" href="../css/aos.css" />
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/notification.css" />
     <!-- animação -->
     <link rel="stylesheet" href="../css/animate.css" />
 
@@ -49,7 +51,7 @@
       <div class="container">
         <div class="menu-bg-wrap">
           <div class="site-navigation">
-            <a href="index.html" class="logo m-0 float-start">Innov Imob</a>
+            <a href="index.html" class="logo m-0 float-start">Imobiliária  <span style="font-size:12px">cronus</span></a>
 
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
@@ -149,7 +151,7 @@
                         <div class="col-6 mb-3">
                             <input
                                     type="text"
-                                    value="Avenida Aoicalipse"
+                                    value="Avenida Apocalipse"
                                     id="endereco"
                                     class="form-control"
                                     placeholder="Endereço"
@@ -253,12 +255,6 @@
                                     <i>
                                         <input
                                             data-message="Produto inserido com sucesso!"
-                                            data-type="inverse"
-                                            data-from="top"
-                                            data-align="center"
-                                            data-icon="fa fa-check"
-                                            data-animation-in="animated bounceIn"
-                                            data-animation-out="animated bounceOut"
                                             type="submit"
                                             value="Cadastrar Imóvel"
                                             class="btn btn-primary"
@@ -373,6 +369,16 @@
         .then(result => {
             console.log(result); // Resultado do backend
             // Adicione aqui lógica adicional conforme necessário
+            let success = result.success;
+            let message = result.message;
+            if (success === false) {
+                alert(message);
+                document.getElementById('id_cpf').value = "";
+                document.getElementById('id_usuario').value = "";
+            } else {
+                alert(message);
+                document.getElementById('cadastroImovelForm').reset();
+            }
         })
         .catch(error => {
             console.error('Erro ao enviar dados para o backend:', error);
@@ -450,15 +456,6 @@
 //   }
 
 </script>
-
-
-
-
-
-
-
-
-
 
 
 
@@ -568,15 +565,19 @@
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-    
+   
+    <!-- jQuery requerido -->
+    <!-- <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> -->
+
+    <!-- <script type="text/javascript" src="https://dev.pedro.com/projeto-cc19/assets/js/jquery/jquery.min.js "></script>
+    <script type="text/javascript" src="https://dev.pedro.com/projeto-cc19/assets/js/jquery-ui/jquery-ui.min.js "></script>
+    <script type="text/javascript" src="https://dev.pedro.com/projeto-cc19/assets/js/popper.js/popper.min.js"></script>
+    <script type="text/javascript" src="https://dev.pedro.com/projeto-cc19/assets/js/bootstrap/js/bootstrap.min.js "></script>
 
     <!-- notificações -->
-    <script type="text/javascript" src="../js/bootstrap-growl.min.js"></script>
-    <script type="text/javascript" src="../js/notification.js"></script>
+    <!-- <script type="text/javascript" src="../js/bootstrap-growl.min.js"></script>
+    <script type="text/javascript" src="../js/notification.js"></script> -->
 
-    <!-- jQuery requerido -->
-    <script type="text/javascript" src="../js/jquery/jquery.min.js "></script>
-    <script type="text/javascript" src="../js/jquery-ui/jquery-ui.min.js "></script>
 
     <!-- bootstrap -->
     <script src="../js/bootstrap.bundle.min.js"></script>
