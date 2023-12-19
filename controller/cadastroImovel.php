@@ -29,9 +29,6 @@
     <link rel="stylesheet" href="../css/tiny-slider.css" />
     <link rel="stylesheet" href="../css/aos.css" />
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/notification.css" />
-    <!-- animação -->
-    <link rel="stylesheet" href="../css/animate.css" />
 
     <title>
       Cadastro de Anunciante
@@ -51,7 +48,7 @@
       <div class="container">
         <div class="menu-bg-wrap">
           <div class="site-navigation">
-            <a href="index.html" class="logo m-0 float-start">Imobiliária  <span style="font-size:12px">cronus</span></a>
+            <a href="../" class="logo m-0 float-start">Imobiliária  <span style="font-size:12px">cronus</span></a>
 
             <ul
               class="js-clone-nav d-none d-lg-inline-block text-start site-menu float-end"
@@ -137,6 +134,7 @@
                                     class="form-control"
                                     placeholder="Tipo de Imóvel (casa, apartamento, terreno, etc.)"
                                     required
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-6 mb-3">
@@ -165,6 +163,7 @@
                                     id="bairro"
                                     class="form-control"
                                     placeholder="Bairro"
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-6 mb-3">
@@ -175,6 +174,7 @@
                                     class="form-control"
                                     placeholder="Cidade"
                                     required
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-6 mb-3">
@@ -221,6 +221,7 @@
                                     id="areaTotal"
                                     class="form-control"
                                     placeholder="Área Total (M²)"
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-6 mb-3">
@@ -230,6 +231,7 @@
                                     id="valorAluguel"
                                     class="form-control"
                                     placeholder="Valor do Aluguel"
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-6 mb-3">
@@ -239,6 +241,7 @@
                                     id="valorVenda"
                                     class="form-control"
                                     placeholder="Valor de Venda"
+                                    oninput="digitarDados()"
                             />
                         </div>
                         <div class="col-12 mb-3">
@@ -247,7 +250,8 @@
                                     class="form-control"
                                     placeholder="Descrição"
                                     rows="4"
-                            >Teste de desenvolvimento de software Innov Imobiliária - produto 001</textarea>
+                                    oninput="digitarDados()"
+                            >Teste de desenvolvimento de software Imobiliária Cronus - produto 001</textarea>
                         </div>
                         <div class="col-12">
                             <!-- botão de inserir produto na tabela -->
@@ -312,6 +316,21 @@
 
 
     <script>
+
+    // AUTO COMPLETAR OS CAMPOS DO LADO PARA VISUALIZAÇÃO LIMPA
+    function digitarDados(){
+        const valorAluguel  = document.getElementById("valorAluguel").value;
+        const valorVenda    = document.getElementById("valorVenda").value;
+        const cidade        = document.getElementById("cidade").value;
+        const bairro        = document.getElementById("bairro").value;
+
+    // TELA DE VISUALIZAÇÃO LIMPA ( ENVIANDO OS DADOS PARA O FRONT-END)
+    document.getElementById("id_bairro").innerText = bairro;
+    document.getElementById("id_cidade").innerText = cidade;
+    }
+
+
+
     document.getElementById('cadastroImovelForm').addEventListener('submit', function (event) {
         event.preventDefault();
 
