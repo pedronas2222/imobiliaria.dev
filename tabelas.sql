@@ -47,6 +47,31 @@ CREATE TABLE Imovel (
     DataCadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     DataAlteracao TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
+
+-- tabela para subir as imagens
+CREATE TABLE imagens (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    CodigoImovel INT,
+    CodigoSindico INT,
+    ChaveCadastro VARCHAR(255),
+    nome_imagem1 VARCHAR(255),
+    dados_imagem1 BLOB,
+    nome_imagem2 VARCHAR(255),
+    dados_imagem2 BLOB,
+    nome_imagem3 VARCHAR(255),
+    dados_imagem3 BLOB,
+    nome_imagem4 VARCHAR(255),
+    dados_imagem4 BLOB,
+    nome_imagem5 VARCHAR(255),
+    dados_imagem5 BLOB,
+    nome_imagem6 VARCHAR(255),
+    dados_imagem6 BLOB
+);
+
+
+
+
+
 -- explicação dos campos
 ImovelID: Identificador único para cada imóvel.
 TipoImovel: Tipo de imóvel (casa, apartamento, terreno, etc.).
